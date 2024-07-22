@@ -1,5 +1,5 @@
 import { usePlanListQuery } from '../hooks/usePlanListQuery';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -24,6 +24,7 @@ const Home = () => {
   return (
     <div>
       <h1>Plan de trésorie</h1>
+      <Link to="/plans/new">Créer un nouveau plan</Link>
       <ul>
       {
         (plans ?? []).map((plan) => (

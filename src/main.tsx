@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Home } from "./pages/Home";
 import { Plans } from "./pages/plans/Plans";
+import { CreatePlan } from "./pages/plans/CreatePlan";
 
 export function Main() {
 
@@ -17,6 +18,10 @@ export function Main() {
     {
       path: "/plans/:id",
       element: <Plans />,
+    },
+    {
+      path: "/plans/new",
+      element: <CreatePlan />
     }
   ]);
 

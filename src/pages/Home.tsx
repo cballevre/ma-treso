@@ -1,6 +1,8 @@
 import { usePlanListQuery } from '../hooks/usePlanListQuery';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const {
     data: plans,
     isLoading,
@@ -15,16 +17,22 @@ const Home = () => {
     return <div>Error</div>;
   }
 
+  const handlePlanClick = (planId: string) => {
+    navigate(`/plans/${planId}`)
+  }
+
   return (
     <div>
       <h1>Plan de trésorie</h1>
+      <ul>
       {
         (plans ?? []).map((plan) => (
-          <div key={plan.id}>
+          <li key={plan.id} onClick={() => handlePlanClick(plan.id)} onKeyUp={() => handlePlanClick(plan.id)} >
             <h2>{plan.title}</h2>
-          </div>
+          </li>
         ))
       }
+      </ul>
     </div>
   );
 }

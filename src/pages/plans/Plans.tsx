@@ -1,3 +1,5 @@
+import { AssumptionTable } from "../../features/assumptions/components/AssumptionTable";
+import { ForecastGraph } from "../../features/forecast/components/ForecastGraph";
 import { usePlanByIdQuery } from "../../hooks/usePlanByIdQuery";
 import { useParams, Link } from "react-router-dom";
 
@@ -13,8 +15,10 @@ const Plans = (): JSX.Element => {
 
     return (
         <div>
-             <Link to="/">Back</Link>
+            <Link to="/">Back</Link>
             <h1>{ data?.title }</h1>
+            <ForecastGraph />
+            <AssumptionTable />
         </div>
     );
 }
